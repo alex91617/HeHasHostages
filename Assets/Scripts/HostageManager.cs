@@ -8,11 +8,11 @@ public class HostageManager : MonoBehaviour {
     public PlayerManager player;
 
     public float releaseTime = 1f; //Delay until joint is disconnected
-    public int power = 4; //Speed at release
+    public int power = 45; //Speed at release
 
     float TimeOut = 30f;
 
-    public float MAX_DISTANCE = 1f;
+    public float MAX_DISTANCE = 0.5f;
 
     //Logic variables
     bool isPressed = false;
@@ -39,6 +39,10 @@ public class HostageManager : MonoBehaviour {
             else
                 rb.position = mousePos;
         }
+        else if(isPressed == false & isConnected)
+        {
+            transform.position = player.transform.position + new Vector3(.25f,-.25f,0);
+        }
         if(TimeOut > 0 & isConnected == false)
         {
             TimeOut -= Time.deltaTime;
@@ -46,7 +50,25 @@ public class HostageManager : MonoBehaviour {
         {
             Destroy(this.gameObject);
         }
+
+
+        if(isConnected & Input.GetKeyDown(KeyCode.Space))
+        {
+            rb.isKinematic = false;
+            GetComponent<SpringJoint2D>().enabled = false;
+            GameObject.FindObjectOfType<PlayerManager>().hasHostage = false;
+            isConnected = false;
+        }
+
 	}
+    private void FixedUpdate()
+    {
+        if (isConnected)
+        {
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = 0;
+        }
+    }
 
     void OnMouseDown()
     {
@@ -64,7 +86,6 @@ public class HostageManager : MonoBehaviour {
         if (isConnected)
         {
             isConnected = false;
-            rb.isKinematic = false;
             StartCoroutine(Release());
         }
     }
@@ -72,12 +93,9 @@ public class HostageManager : MonoBehaviour {
     IEnumerator Release()
     {
         yield return new WaitForSeconds(releaseTime*0.15f);
-
+        rb.isKinematic = false;
         GetComponent<SpringJoint2D>().enabled = false;
-        for (int i = 0; i < power; i++)
-        {
-            rb.AddForce(rb.velocity);
-        }
+        rb.AddForce((player.transform.position - transform.position).normalized * power);
         GameObject.FindObjectOfType<PlayerManager>().hasHostage = false;
     }
 
