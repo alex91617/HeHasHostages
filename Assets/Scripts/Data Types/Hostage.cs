@@ -11,20 +11,13 @@ public class Hostage {
     public string id;
     public string name;
     public string background;
-    private string sprite;
+    public string sprite;
     public HostageType type;
 
 
     public Sprite getSprite()
     {
-        try
-        {
-            return Resources.Load<Sprite>("Art/Hostages/" + sprite + ".png");
-        }
-        catch
-        {
-            return Resources.Load<Sprite>("Art/error.png");
-        }
+        return Resources.Load<Sprite>("Art/Hostages/" + sprite);
     }
 
     public Hostage()

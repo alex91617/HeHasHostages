@@ -31,7 +31,7 @@ public static class Collectables {
 
 
     //Returns a random hostage or attempt to find a unique hostage randomly
-    static Hostage GrabAHostage(bool OnlyLocked = false)
+    public static Hostage GrabAHostage(bool OnlyLocked = false)
     {
         if(OnlyLocked)
         {
@@ -42,7 +42,7 @@ public static class Collectables {
             for(int i = 0; i < AllHostages.Count*2; i++)
             {
                 bool IsUnique = true;
-                Hostage possibleHostage = AllHostages[Random.Range(0, AllHostages.Count - 1)];
+                Hostage possibleHostage = AllHostages[Random.Range(0, AllHostages.Count)];
                 foreach(Hostage AHostage in AllHostages)
                 {
                     if(AHostage.id == possibleHostage.id)
@@ -63,7 +63,7 @@ public static class Collectables {
         else
         {
             //Returns a random hostage
-            return AllHostages[Random.Range(0, AllHostages.Count - 1)];
+            return AllHostages[Random.Range(0, AllHostages.Count)];
         }
     }
 }
