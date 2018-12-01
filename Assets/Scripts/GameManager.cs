@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
     Hostage nextHostage;
+    public Hostage currentHostage;
     public Transform NextHostageDisplay;
 	// Use this for initialization
 	void Start () {
@@ -16,9 +17,10 @@ public class GameManager : MonoBehaviour {
 	void Update () {
         NextHostageDisplay.Find("Text").GetComponent<Text>().text = nextHostage.name;
         NextHostageDisplay.Find("Image").GetComponent<Image>().sprite = nextHostage.getSprite();
-        if(Input.GetMouseButtonDown(0))
-          {
-            nextHostage = Collectables.GrabAHostage();
-        }
 	}
+    public void LoadHostage()
+    {
+        currentHostage = nextHostage;
+        nextHostage = Collectables.GrabAHostage();
+    }
 }
