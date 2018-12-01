@@ -10,6 +10,8 @@ public class HostageManager : MonoBehaviour {
     public float releaseTime = 1f; //Delay until joint is disconnected
     public int power = 4; //Speed at release
 
+    float TimeOut = 30f;
+
     public float MAX_DISTANCE = 1f;
 
     //Logic variables
@@ -37,6 +39,13 @@ public class HostageManager : MonoBehaviour {
             else
                 rb.position = mousePos;
         }
+        if(TimeOut > 0 & isConnected == false)
+        {
+            TimeOut -= Time.deltaTime;
+        } else if(TimeOut <= 0)
+        {
+            Destroy(this.gameObject);
+        }
 	}
 
     void OnMouseDown()
@@ -54,6 +63,7 @@ public class HostageManager : MonoBehaviour {
         isPressed = false;
         if (isConnected)
         {
+            isConnected = false;
             rb.isKinematic = false;
             StartCoroutine(Release());
         }
