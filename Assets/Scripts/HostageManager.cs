@@ -105,6 +105,8 @@ public class HostageManager : MonoBehaviour {
     {
         GetComponent<SpriteRenderer>().sprite = hostage.getSprite();
         yield return new WaitForSeconds(releaseTime*0.15f);
+        gameObject.layer = 2
+            ;
         rb.isKinematic = false;
         GetComponent<SpringJoint2D>().enabled = false;
         rb.AddForce((player.transform.position - transform.position).normalized * power * -1);

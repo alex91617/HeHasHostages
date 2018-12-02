@@ -21,7 +21,6 @@ public class Bullet : MonoBehaviour {
             this.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             this.GetComponent<Rigidbody2D>().angularVelocity = 0;
             Instantiate(blood).transform.position = collision.transform.position;
-            StartCoroutine(DestroySelf());
             if (manager.hostage != null)
             {
                 if(manager.hostage.type == HostageType.NORMAL)
@@ -37,7 +36,9 @@ public class Bullet : MonoBehaviour {
             Instantiate(blood).transform.position = collision.transform.position;
             collision.GetComponent<PlayerManager>().HP--;
         }
+        StartCoroutine(DestroySelf());
     }
+    
 
 
     IEnumerator DestroySelf()
