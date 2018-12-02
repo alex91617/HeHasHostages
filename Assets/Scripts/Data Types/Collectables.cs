@@ -24,7 +24,7 @@ public static class Collectables {
         }
 
         //Load unlocks from PlayerPrefs
-        string unlockString = PlayerPrefs.GetString("unlocks", "json,richard");
+        string unlockString = PlayerPrefs.GetString("unlocks", "json,richard,mike");
         string[] unlocks = unlockString.Split(',');
         foreach(string unlock in unlocks)
         {

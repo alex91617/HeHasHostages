@@ -9,13 +9,13 @@ public class EncyclopediaManager : MonoBehaviour {
 
     public void DoUnlocks()
     {
-        Transform unlocked = transform.Find("Unlocked");
+        Transform unlocked = transform.Find("Unlocked").Find("Viewport").Find("Content");
         for (int i = unlocked.childCount; i > 0 ; i-- )
         {
             Destroy(unlocked.GetChild(i));
         }
         Collectables.LoadCollectables();
-        foreach(Hostage hostage in Collectables.UnlockedHostages)
+        foreach(Hostage hostage in Collectables.AllHostages)
         {
             GameObject gobj = Instantiate(unlockTemplate);
             gobj.transform.SetParent(unlocked);
