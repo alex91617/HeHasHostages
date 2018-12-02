@@ -17,6 +17,7 @@ public class MainMenuManager : MonoBehaviour {
     public void NewGame()
     {
         fader.FadeIn = false;
+        fader.update = true;
         StartCoroutine(LoadGame());
     }
 
