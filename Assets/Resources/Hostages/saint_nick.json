@@ -1,0 +1,7 @@
+{
+"id" : "saint_nick",
+"name" : "Saint Nick",
+"type" : 0,
+"background" : "You're not really sure if hes real or not... but he's real good at blocking incoming projectiles. And isn't that what Christmas is all about?",
+"sprite" : "saint_nick"
+}
