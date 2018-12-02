@@ -12,7 +12,7 @@ public class HostageManager : MonoBehaviour {
 
     float TimeOut = 30f;
 
-    public float MAX_DISTANCE = 0.5f;
+    public float MAX_DISTANCE = 1.5f;
 
     //Logic variables
     bool isPressed = false;
@@ -41,7 +41,7 @@ public class HostageManager : MonoBehaviour {
         }
         else if(isPressed == false & isConnected)
         {
-            transform.position = player.transform.position + new Vector3(.25f,-.25f,0);
+            transform.position = player.transform.position + new Vector3(0.25f,-.25f,0);
         }
         if(TimeOut > 0 & isConnected == false)
         {
@@ -95,7 +95,7 @@ public class HostageManager : MonoBehaviour {
         yield return new WaitForSeconds(releaseTime*0.15f);
         rb.isKinematic = false;
         GetComponent<SpringJoint2D>().enabled = false;
-        rb.AddForce((player.transform.position - transform.position).normalized * power);
+        rb.AddForce((player.transform.position - transform.position).normalized * power * -1);
         GameObject.FindObjectOfType<PlayerManager>().hasHostage = false;
     }
 
