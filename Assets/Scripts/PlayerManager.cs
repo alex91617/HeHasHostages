@@ -109,7 +109,7 @@ public class PlayerManager : MonoBehaviour {
         //Setup object
         obj.name = hostage.name;
         obj.transform.position = this.transform.position;
-        obj.GetComponent<SpriteRenderer>().sprite = hostage.getSprite();
+        obj.GetComponent<HostageManager>().hostage= hostage;
         obj.GetComponent<SpringJoint2D>().distance = 0.25f;
         obj.GetComponent<SpringJoint2D>().connectedAnchor = transform.position;
         Physics2D.IgnoreCollision(this.GetComponent<Collider2D>(), obj.GetComponent<Collider2D>());
@@ -118,4 +118,4 @@ public class PlayerManager : MonoBehaviour {
         hasHostage = true;
         loadingHostage = false;
     }
-}
+} 

@@ -6,6 +6,7 @@ public class HostageManager : MonoBehaviour {
 
     public Rigidbody2D rb;
     public PlayerManager player;
+    public Hostage hostage;
 
     public float releaseTime = 1f; //Delay until joint is disconnected
     public int power = 45; //Speed at release
@@ -41,7 +42,7 @@ public class HostageManager : MonoBehaviour {
         }
         else if(isPressed == false & isConnected)
         {
-            transform.position = player.transform.position + new Vector3(0.25f,-.25f,0);
+            transform.position = player.transform.position + new Vector3(0.12f,-.12f,0);
         }
         if(TimeOut > 0 & isConnected == false)
         {
@@ -92,6 +93,7 @@ public class HostageManager : MonoBehaviour {
 
     IEnumerator Release()
     {
+        GetComponent<SpriteRenderer>().sprite = hostage.getSprite();
         yield return new WaitForSeconds(releaseTime*0.15f);
         rb.isKinematic = false;
         GetComponent<SpringJoint2D>().enabled = false;
