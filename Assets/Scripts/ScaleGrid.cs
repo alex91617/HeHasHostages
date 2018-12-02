@@ -14,7 +14,6 @@ public class ScaleGrid : MonoBehaviour {
         grid = this.GetComponent<GridLayoutGroup>();
         sizeY =  grid.cellSize.y + grid.spacing.y;
         sizeX = grid.cellSize.x + grid.spacing.x;
-        Debug.Log(sizeX + "X Y" + sizeY);
     }
 	
 
