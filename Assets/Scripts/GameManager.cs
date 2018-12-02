@@ -6,9 +6,13 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour {
     Hostage nextHostage;
 
+
+
+
     public GameObject hostageInfoDisplay;
     public Hostage currentHostage;
     public Transform NextHostageDisplay;
+    public Text money;
 
     public Slider healthbar;
 
@@ -20,12 +24,18 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        NextHostageDisplay.Find("Text").GetComponent<Text>().text = nextHostage.name;
-        NextHostageDisplay.Find("Image").GetComponent<Image>().sprite = nextHostage.getSprite();
-        hostageInfoDisplay.transform.Find("Name").GetComponent<Text>().text = nextHostage.name;
-        hostageInfoDisplay.transform.Find("Image").GetComponent<Image>().sprite = nextHostage.getSprite();
-        hostageInfoDisplay.transform.Find("Backstory").GetComponent<Text>().text = nextHostage.background;
+        NextHostageDisplay.Find("Text").GetComponent<Text>().text = currentHostage.name;
+        NextHostageDisplay.Find("Image").GetComponent<Image>().sprite = currentHostage.getSprite();
+        hostageInfoDisplay.transform.Find("Name").GetComponent<Text>().text = currentHostage.name;
+        hostageInfoDisplay.transform.Find("Image").GetComponent<Image>().sprite = currentHostage.getSprite();
+        hostageInfoDisplay.transform.Find("Backstory").GetComponent<Text>().text = currentHostage.background;
     }
+    public void DisplayMoney(int value)
+    {
+        money.text = "$" + value.ToString();
+    }
+
+
     public void LoadHostage()
     {
         currentHostage = nextHostage;

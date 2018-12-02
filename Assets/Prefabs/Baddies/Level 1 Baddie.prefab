@@ -82,7 +82,7 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1876808029979534}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -138,7 +138,7 @@ MonoBehaviour:
   canSearch: 1
   canMove: 1
   maxSpeed: 1
-  gravity: {x: NaN, y: NaN, z: NaN}
+  gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
     m_Bits: 4294967295

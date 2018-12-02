@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class PlayerManager : MonoBehaviour {
     public bool hasHostage = false;
@@ -13,6 +14,7 @@ public class PlayerManager : MonoBehaviour {
     public int HP = 4;
     public int MaxHP = 4;
 
+    public int money = 0;
 
     //Animations
     enum AnimationSet {IDLE, MOVING};
@@ -32,10 +34,13 @@ public class PlayerManager : MonoBehaviour {
         manager = GameObject.FindObjectOfType<GameManager>();
         render = this.GetComponent<SpriteRenderer>();
         tempAnimationTime = animationSpeed;
+        
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        manager.DisplayMoney(money);
         if(tempAnimationTime > 0)
         {
             tempAnimationTime -= Time.deltaTime;
