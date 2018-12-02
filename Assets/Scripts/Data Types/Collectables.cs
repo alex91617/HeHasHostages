@@ -22,43 +22,42 @@ public static class Collectables {
             AllHostages.Add(obj);
             Debug.Log("Loading - hostage:" + obj.id);
         }
+
+        //Load unlocks from PlayerPrefs
+        string unlockString = PlayerPrefs.GetString("unlocks", "json,richard");
+        string[] unlocks = unlockString.Split(',');
+        foreach(string unlock in unlocks)
+        {
+            foreach(Hostage hostage in AllHostages)
+            {
+                if(unlock == hostage.id)
+                {
+                    UnlockedHostages.Add(hostage);
+                    break;
+                }
+            }
+        }
     }
 
     static void SaveCollectables()
     {
+        string hostageIds = "";
+        foreach(Hostage hostage in UnlockedHostages)
+        {
+            hostageIds += hostage.id + ",";
+        }
+        PlayerPrefs.SetString("unlocks",hostageIds);
+        PlayerPrefs.Save();
     }
 
 
 
     //Returns a random hostage or attempt to find a unique hostage randomly
-    public static Hostage GrabAHostage(bool OnlyLocked = false)
+    public static Hostage GrabAHostage(bool OnlyUnlocked = false)
     {
-        if(OnlyLocked)
+        if(OnlyUnlocked)
         {
-            //Generate an empty hostage
-            Hostage hostage = new Hostage();
-
-            //Attempt to find a unique hostage (semi-randomly)
-            for(int i = 0; i < AllHostages.Count*2; i++)
-            {
-                bool IsUnique = true;
-                Hostage possibleHostage = AllHostages[Random.Range(0, AllHostages.Count)];
-                foreach(Hostage AHostage in AllHostages)
-                {
-                    if(AHostage.id == possibleHostage.id)
-                    {
-                        IsUnique = false;
-                    }
-                }
-                //Return hostage if unique
-                if(IsUnique)
-                {
-                    hostage = possibleHostage;
-                    break;
-                }
-            }
-            //Return results
-            return hostage;
+            return UnlockedHostages[Random.Range(0, UnlockedHostages.Count)];
         }
         else
         {

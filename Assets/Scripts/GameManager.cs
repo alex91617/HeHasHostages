@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour {
     public void LoadHostage()
     {
         currentHostage = nextHostage;
-        nextHostage = Collectables.GrabAHostage();
+        nextHostage = Collectables.GrabAHostage(true);
     }
 
     public void OpenHostageDisplay()
