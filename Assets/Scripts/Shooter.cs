@@ -26,7 +26,7 @@ public class Shooter : MonoBehaviour {
 
 	void Update () {
         //Update laser display
-        line.SetPosition(0, transform.position);
+        line.SetPosition(0, transform.position + new Vector3(0.055f,-0.075f,0f));
         line.SetPosition(1, player.transform.position + playerLaserOffset);
 
         //Countdown

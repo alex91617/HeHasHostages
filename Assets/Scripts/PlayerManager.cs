@@ -10,6 +10,10 @@ public class PlayerManager : MonoBehaviour {
     bool loadingHostage = false;
     GameManager manager;
 
+    public int HP = 4;
+    public int MaxHP = 4;
+
+
     //Animations
     enum AnimationSet {IDLE, MOVING};
     AnimationSet animation = AnimationSet.IDLE;
@@ -64,6 +68,7 @@ public class PlayerManager : MonoBehaviour {
             manager.LoadHostage();
             StartCoroutine(SpawnHostage(manager.currentHostage));
         }
+        manager.UpdateHealthbar(HP, MaxHP);
 	}
 
     private void FixedUpdate()

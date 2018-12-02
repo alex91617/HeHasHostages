@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour {
     public GameObject hostageInfoDisplay;
     public Hostage currentHostage;
     public Transform NextHostageDisplay;
+
+    public Slider healthbar;
+
 	// Use this for initialization
 	void Start () {
         Collectables.LoadCollectables();
@@ -37,5 +40,10 @@ public class GameManager : MonoBehaviour {
     public void CloseHostageDisplay()
     {
         hostageInfoDisplay.SetActive(false);
+    }
+    public void UpdateHealthbar(int current, int max)
+    {
+        healthbar.maxValue = max;
+        healthbar.value = Mathf.Clamp(current,0,max);
     }
 }

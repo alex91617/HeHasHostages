@@ -62,6 +62,16 @@ public class HostageManager : MonoBehaviour {
         }
 
 	}
+
+    public void ComputeDeath()
+    {
+        if(isConnected == false)
+        {
+            Destroy(gameObject);
+        }
+        
+    }
+
     private void FixedUpdate()
     {
         if (isConnected)

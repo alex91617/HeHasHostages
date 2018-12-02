@@ -10,6 +10,7 @@ public class Bullet : MonoBehaviour {
     {
         if(collision.GetComponent<HostageManager>() != null)
         {
+            HostageManager manager = collision.GetComponent<HostageManager>();
             //Add collision force
             collision.GetComponent<Rigidbody2D>().AddForce(GetComponent<Rigidbody2D>().GetPointVelocity(collision.transform.position) * GetComponent<Rigidbody2D>().mass);
 
@@ -19,8 +20,22 @@ public class Bullet : MonoBehaviour {
             this.GetComponent<Collider2D>().isTrigger = false;
             this.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             this.GetComponent<Rigidbody2D>().angularVelocity = 0;
-            Instantiate(blood).transform.position = transform.position;
-                    StartCoroutine(DestroySelf());
+            Instantiate(blood).transform.position = collision.transform.position;
+            StartCoroutine(DestroySelf());
+            if (manager.hostage != null)
+            {
+                if(manager.hostage.type == HostageType.NORMAL)
+                {
+
+                    manager.ComputeDeath();
+                }
+            }
+                    
+        }
+        else if(collision.GetComponent<PlayerManager>() != null)
+        {
+            Instantiate(blood).transform.position = collision.transform.position;
+            collision.GetComponent<PlayerManager>().HP--;
         }
     }
 
