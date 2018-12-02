@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -28,14 +28,24 @@ public class MainMenuManager : MonoBehaviour {
     //Go between main menu and settings
     public void Settings()
     {
+        transform.Find("Encyclopedia").gameObject.SetActive(false);
         transform.Find("Default").gameObject.SetActive(false);
         transform.Find("Settings").gameObject.SetActive(true);
     }
     public void Back()
     {
         PlayerPrefs.Save();
+        transform.Find("Encyclopedia").gameObject.SetActive(false);
         transform.Find("Settings").gameObject.SetActive(false);
         transform.Find("Default").gameObject.SetActive(true);
+    }
+    public void Encyclopeida()
+    {
+        
+        transform.Find("Settings").gameObject.SetActive(false);
+        transform.Find("Default").gameObject.SetActive(false);
+        transform.Find("Encyclopedia").gameObject.SetActive(true);
+        transform.Find("Encyclopedia").GetComponent<EncyclopediaManager>().DoUnlocks();
     }
     void Start()
     {
