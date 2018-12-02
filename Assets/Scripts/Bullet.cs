@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour {
 
+    public GameObject blood;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.GetComponent<HostageManager>() != null)
@@ -17,6 +19,7 @@ public class Bullet : MonoBehaviour {
             this.GetComponent<Collider2D>().isTrigger = false;
             this.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             this.GetComponent<Rigidbody2D>().angularVelocity = 0;
+            Instantiate(blood).transform.position = transform.position;
                     StartCoroutine(DestroySelf());
         }
     }
