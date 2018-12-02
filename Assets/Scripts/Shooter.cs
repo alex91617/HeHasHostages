@@ -7,16 +7,20 @@ public class Shooter : MonoBehaviour {
     PlayerManager player;
     private Vector3 playerLaserOffset = new Vector3(0,0.125f,0);
 
-
-    public float TimeUntilFiring = 5;
+    public float fireRate = 5;
+    float TimeUntilFiring;
     public bool canShoot = true;
     public GameObject bulletPrefab;
-    public float bulletPower = 13f;
+    public float bulletPower = 4f;
+    bool reloading = false;
+    public float reloadTime = 1;
 
 
 	void Start () {
         line = this.GetComponent<LineRenderer>();
         player = GameObject.FindObjectOfType<PlayerManager>();
+        line.useWorldSpace = true;
+        TimeUntilFiring = fireRate;
     }
 	
 
@@ -34,6 +38,20 @@ public class Shooter : MonoBehaviour {
         {
             StartCoroutine(Shoot());
         }
+        if(canShoot == false & reloading == false)
+        {
+            reloading = true;
+            StartCoroutine(Reload());
+        }
+    }
+
+    IEnumerator Reload()
+    {
+        yield return new WaitForSeconds(reloadTime);
+        line.enabled = true;
+        TimeUntilFiring = fireRate;
+        canShoot = true;
+        reloading = false;
     }
 
     IEnumerator Shoot()

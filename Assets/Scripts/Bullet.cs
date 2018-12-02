@@ -14,13 +14,17 @@ public class Bullet : MonoBehaviour {
             //'Disable' bullet
             this.GetComponent<Rigidbody2D>().isKinematic = true;
             this.GetComponent<SpriteRenderer>().enabled = false;
-            StartCoroutine(DestroySelf());
+            this.GetComponent<Collider2D>().isTrigger = false;
+            this.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            this.GetComponent<Rigidbody2D>().angularVelocity = 0;
+                    StartCoroutine(DestroySelf());
         }
     }
 
 
     IEnumerator DestroySelf()
     {
+
         yield return new WaitForSeconds(0.375f);
         Destroy(this.gameObject);
     }
