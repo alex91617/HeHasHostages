@@ -15,7 +15,7 @@ public class EncyclopediaManager : MonoBehaviour {
             Destroy(unlocked.GetChild(i));
         }
         Collectables.LoadCollectables();
-        foreach(Hostage hostage in Collectables.AllHostages)
+        foreach(Hostage hostage in Collectables.UnlockedHostages)
         {
             GameObject gobj = Instantiate(unlockTemplate);
             gobj.transform.SetParent(unlocked);
