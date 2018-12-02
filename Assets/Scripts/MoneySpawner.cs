@@ -9,6 +9,8 @@ public class MoneySpawner : MonoBehaviour {
     public int countMin = 1;
     public int countMax = 5;
 
+    public int percentChangeToSpawnExtra = 50;
+
     public GameObject moneybag;
 
 	// Use this for initialization
@@ -16,6 +18,13 @@ public class MoneySpawner : MonoBehaviour {
         for(int i = 0; i < countMax; i++)
         {
             Instantiate(moneybag).transform.position = GetPos() + transform.position;
+        }
+        for(int i = 0; i < countMax - countMin; i++)
+        {
+            if(Random.Range(0,100) < percentChangeToSpawnExtra)
+            {
+                Instantiate(moneybag).transform.position = GetPos() + transform.position;
+            }
         }
     }
 	
