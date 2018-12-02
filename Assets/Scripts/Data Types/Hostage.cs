@@ -12,6 +12,7 @@ public class Hostage {
     public string name;
     public string background;
     public string sprite;
+    public int hp = 1;
     public HostageType type;
 
 

@@ -5,12 +5,9 @@ using UnityEngine;
 public class Bullet : MonoBehaviour {
 
     public GameObject blood;
-    bool allowCollides = true;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (allowCollides)
-        {
             if (collision.GetComponent<HostageManager>() != null)
             {
                 HostageManager manager = collision.GetComponent<HostageManager>();
@@ -40,14 +37,12 @@ public class Bullet : MonoBehaviour {
                 collision.GetComponent<PlayerManager>().HP--;
             }
             StartCoroutine(DestroySelf());
-        }
     }
     
 
 
     IEnumerator DestroySelf()
     {
-        allowCollides = false;
         yield return new WaitForSeconds(0.375f);
         Destroy(this.gameObject);
     }

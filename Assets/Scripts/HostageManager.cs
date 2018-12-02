@@ -11,6 +11,8 @@ public class HostageManager : MonoBehaviour {
     public float releaseTime = 1f; //Delay until joint is disconnected
     public int power = 45; //Speed at release
 
+    int HP = 0;
+
     float TimeOut = 30f;
 
     public float MAX_DISTANCE = 1.5f;
@@ -23,6 +25,7 @@ public class HostageManager : MonoBehaviour {
 	void Start () {
         rb = this.GetComponent<Rigidbody2D>();
         player = GameObject.FindObjectOfType<PlayerManager>();
+        HP = hostage.hp;
 	}
 	
 	// Update is called once per frame
@@ -65,7 +68,7 @@ public class HostageManager : MonoBehaviour {
 
     public void ComputeDeath()
     {
-        if(isConnected == false)
+        if(isConnected == false & --HP <= 0)
         {
             Destroy(gameObject);
         }
