@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class HostageManager : MonoBehaviour {
 
@@ -70,10 +71,13 @@ public class HostageManager : MonoBehaviour {
         }
         if(isConnected & Input.GetMouseButton(0))
         {
-            isPressed = true;
-            rb.isKinematic = true;
+            if (player.IsInfoOpen() == false & Vector2.Distance(Camera.main.ScreenToWorldPoint(Input.mousePosition), transform.position) <= 4)
+            {
+                isPressed = true;
+                rb.isKinematic = true;
+            }
         }
-        else if(isConnected & Input.GetMouseButtonUp(0))
+        else if(isConnected & isPressed & Input.GetMouseButtonUp(0))
         {
             isPressed = false;
             isConnected = false;
@@ -109,7 +113,7 @@ public class HostageManager : MonoBehaviour {
         gameObject.layer = 2;
         rb.isKinematic = false;
         GetComponent<SpringJoint2D>().enabled = false;
-        rb.AddForce((player.transform.position - transform.position).normalized * power * -1);
+        rb.AddForce((player.transform.position - transform.position).normalized * power * -1 * (hostage.mass/2));
         GameObject.FindObjectOfType<PlayerManager>().hasHostage = false;
     }
 
