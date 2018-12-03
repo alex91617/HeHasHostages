@@ -15,6 +15,8 @@ public class Shooter : MonoBehaviour {
     bool reloading = false;
     public float reloadTime = 1;
     public bool outOfRange;
+    public bool debug = false;
+
 
     Pathfinding.AIPath pathing;
 
@@ -41,7 +43,7 @@ public class Shooter : MonoBehaviour {
     {
         if (active)
         {
-            line.enabled = canShoot & outOfRange == false;
+            line.enabled = canShoot & (outOfRange == false);
             if (line.enabled)
             {
                 //Update laser display
@@ -49,18 +51,23 @@ public class Shooter : MonoBehaviour {
                 line.SetPosition(1, player.transform.position + playerLaserOffset);
             }
 
-            outOfRange = Vector2.Distance(this.transform.position, player.transform.position) > RANGE;
+
+            outOfRange = !CheckLineOfSight(RANGE);
+
 
             //Countdown
             TimeUntilFiring -= Time.deltaTime;
         }
-        
+        else
+        {
+            active = CheckLineOfSight(ACTIVE_RANGE);
+        }
     }
     private void FixedUpdate()
     {
         if (active)
         {
-            if (canShoot & TimeUntilFiring <= 0 & outOfRange == false)
+            if (canShoot & TimeUntilFiring <= 0 & (outOfRange == false))
             {
                 pathing.canMove = false;
                 StartCoroutine(Shoot());
@@ -81,7 +88,6 @@ public class Shooter : MonoBehaviour {
         else
         {
             pathing.canMove = false;
-            active = CheckLineOfSight(ACTIVE_RANGE);
         }
     }
 
@@ -116,7 +122,6 @@ public class Shooter : MonoBehaviour {
 
     public bool CheckLineOfSight(float distance)
     {
-        return Vector2.Distance(this.transform.position, player.transform.position) > distance;
 
         //precompute our ray settings
         Vector3 start = transform.position;
@@ -135,11 +140,9 @@ public class Shooter : MonoBehaviour {
             RaycastHit2D sightTest = hits[i];
             if (sightTest.collider.gameObject != player.gameObject)
             {
-                Debug.Log(sightTest.collider.gameObject.name);
                 return false;
             }
         }
-
         return true;
     }
 }
