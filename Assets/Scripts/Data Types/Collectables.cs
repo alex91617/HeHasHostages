@@ -37,9 +37,10 @@ public static class Collectables {
                 }
             }
         }
+        Debug.Log("Player Unlocks: " + unlockString);
     }
 
-    static void SaveCollectables()
+    static public void SaveCollectables()
     {
         string hostageIds = "";
         foreach(Hostage hostage in UnlockedHostages)
