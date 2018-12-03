@@ -3,5 +3,8 @@
 "name" : "Rodriguez",
 "type" : 0,
 "background" : "He was planning on robbing this bank and holding everyone hostage but you got here first.",
-"sprite" : "rodriguez"
+"sprite" : "rodriguez",
+"hp":2,
+"friction": 0.5,
+"mass":1
 }

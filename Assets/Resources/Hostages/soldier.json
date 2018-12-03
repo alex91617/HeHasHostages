@@ -3,5 +3,8 @@
 "name" : "Returning Veteran",
 "type" : 0,
 "background" : "He was just visiting the bank for enough gas money to go see his daughter for the first time in 20 years.",
-"sprite" : "soldier"
+"sprite" : "soldier",
+"hp":2,
+"friction": 0.98,
+"mass":2
 }

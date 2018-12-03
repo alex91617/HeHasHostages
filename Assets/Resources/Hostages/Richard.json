@@ -3,5 +3,8 @@
 "name" : "Richard",
 "type" : 0,
 "background" : "ENTER RICHARD'S BACKSTORY",
-"sprite" : "richard"
+"sprite" : "richard",
+"hp":1,
+"friction": 0.5,
+"mass":2
 }
