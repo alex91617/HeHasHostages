@@ -56,7 +56,7 @@ public class MainMenuManager : MonoBehaviour {
 
     IEnumerator LoadGame()
     {
-        yield return new WaitForSeconds(fader.fadeTime*4);
+        yield return new WaitForSeconds(0);
         SceneManager.LoadScene(1);
     }
 }
