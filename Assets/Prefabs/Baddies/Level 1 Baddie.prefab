@@ -229,12 +229,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
-  radius: 0.25
+  radius: 0.3
   height: 0.01
   repathRate: 0.5
   canSearch: 1
   canMove: 1
-  maxSpeed: 1
+  maxSpeed: 0.7
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
@@ -245,9 +245,9 @@ MonoBehaviour:
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 360
-  slowdownDistance: 0.6
-  pickNextWaypointDist: 2
-  endReachedDistance: 0.2
+  slowdownDistance: 3
+  pickNextWaypointDist: 0.1
+  endReachedDistance: 2.5
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
@@ -270,6 +270,7 @@ MonoBehaviour:
   bulletPower: 10
   reloadTime: 1
   outOfRange: 0
+  debug: 0
 --- !u!114 &114927185255205862
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -29027,8 +29027,8 @@ Tilemap:
       m_ColliderType: 0
   - first: {x: 25, y: 35, z: 0}
     second:
-      m_TileIndex: 15
-      m_TileSpriteIndex: 24
+      m_TileIndex: 23
+      m_TileSpriteIndex: 2
       m_TileMatrixIndex: 0
       m_TileColorIndex: 17
       m_ObjectToInstantiate: {fileID: 0}
@@ -33350,7 +33350,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 21f13df74ad0cce48903f3bf87bf7291, type: 2}
   - m_RefCount: 44
     m_Data: {fileID: 11400000, guid: 69cd1458f2f60ea49a512c81aad09376, type: 2}
-  - m_RefCount: 253
+  - m_RefCount: 252
     m_Data: {fileID: 11400000, guid: 519f5ae47513b3d44bc99057463d92fa, type: 2}
   - m_RefCount: 218
     m_Data: {fileID: 11400000, guid: c64fc6c2321e0e94882cdeeabbaa7c0c, type: 2}
@@ -33366,7 +33366,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 13248bd7446a90d41b7919bf60d551c5, type: 2}
   - m_RefCount: 17
     m_Data: {fileID: 11400000, guid: 2e7a23c1644c22c4ab9444d69e3259b3, type: 2}
-  - m_RefCount: 15
+  - m_RefCount: 16
     m_Data: {fileID: 11400000, guid: 69b0839e1eb4c294e81e4a70a73b63e7, type: 2}
   - m_RefCount: 15
     m_Data: {fileID: 11400000, guid: 4cf1d04ad72b74e409f93c46dbd8bd37, type: 2}
@@ -33379,7 +33379,7 @@ Tilemap:
     m_Data: {fileID: 21300002, guid: 87237359dea60364cb92f613e5e75621, type: 3}
   - m_RefCount: 15
     m_Data: {fileID: 21300006, guid: 87237359dea60364cb92f613e5e75621, type: 3}
-  - m_RefCount: 15
+  - m_RefCount: 16
     m_Data: {fileID: 21300000, guid: 87237359dea60364cb92f613e5e75621, type: 3}
   - m_RefCount: 17
     m_Data: {fileID: 21300004, guid: 87237359dea60364cb92f613e5e75621, type: 3}
@@ -33423,7 +33423,7 @@ Tilemap:
     m_Data: {fileID: 21300010, guid: 15d3f1850afe710428619efe38a88a0b, type: 3}
   - m_RefCount: 44
     m_Data: {fileID: 21300006, guid: 15d3f1850afe710428619efe38a88a0b, type: 3}
-  - m_RefCount: 253
+  - m_RefCount: 252
     m_Data: {fileID: 21300044, guid: 15d3f1850afe710428619efe38a88a0b, type: 3}
   - m_RefCount: 218
     m_Data: {fileID: 21300028, guid: 15d3f1850afe710428619efe38a88a0b, type: 3}
@@ -34695,7 +34695,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAACYn+u0LEmiNgIAAMcEAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VMuS2jAQ/BVK55AyLBDILTEsyYGFWjaViy/CGmMVsuTSY3kV/56RbLDXSU6Y7nl0z4x9JVyaElKr9FJztlIMyNce8c/kU4/QwL1SyxXCA0S4UQVYzdNvci98bISgkzxTuliwPcTKWINwRoUBpLSyPlsidO2RE/70Zz7lXKde/G/vhk8pSAu6ift3lJOpoEUJbMsv0ARPRnX0ZBTCJBqpI6LPw7Evr4TgplZC7LkMRl/p2ftknKKr0N2bzIHvc4t/hu3EdZYZsLUiTc9zrnE4VUXyXdncVyqoOVSy3qlwvscgCKpKrv5i+xWdaVX8uHcdRL6DzXl6QH0pNbY10DY8/yjbySMVB7oT8DsH+aKWWjnJkLTa+VRnYDhv/j6MxTmkhwavpHZAV/5/M97DLXg/xYIXuzD0UQVshQqTDksHjWv5iYLDSZi6BKJexS8Db3Tfvp2aeObaWKRql9LL2ymnfShZhJl5N87GSksIcC26BEmFPW+wjO0usMO12naYZ+rfjrp5zd2Pv5MS4CY+ijrURh0fyzK5Oq7A5GtnBZfQiPbEC84pVlJW99WeyT1t63RG01ba3nH28bTIZJyNn6Z0CnQCk+Es60fZOJ2NgY6+MDaYjp5IuD0u0ScVm0poPR7cmmyKS7yz+3eht9S0DLfOND0u+aVQrZFzmaltqgHkuqrwEA4am+AryRaM44C2YC2XYd/kmhCh0gOw5FEoCU4XJ6tp0lRJSMnflfVIQuLwwUjIjdz+AFBLAwQUAAAICAAAmJ/riSxsJGwAAAB3AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9Iz1lFQSi9KLMgoBgoYgjilmSkgdrSSmWmaqbFFokVqolmqmZFlmq5BmmmypWlqool5SoqhhYmxUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAACYn+u0LEmiNgIAAMcEAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAACYn+uJLGwkbAAAAHcAAAAJACQAAAAAAAAAAAAAAIMCAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAOgMAAAAA
+    dataString: UEsDBBQAAAgIAACYn+v74MRKRwIAAOoEAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFtVE1z2jAQ/SuMziVjEyDQWwuE9kBgQjq9+CKsNdYgSx5JDl/Df+9KFth164utt3qrt29XvhIuTQmpVXqpOVspBuRrj7hv8qVHqI+9U8sVwjEi3KgCrObpN7kXbm+EYCV5pnSxYHuYKWMNwhkVBjCklXVsidC1R0746k8d5RyoF/fu3fArBWlBN/vi6CmOxu757/ZKpoIWJbAtv0DDGg6ePOdlGlgN4GkSKwyMR/6x25sqIbgJSok9l96IbZmDBmcF4xQL9wIHuMyB73MbFg/uOssM2KBV0/Oca/SvTkq+K5u7TAU1h1rwJxWVOyb20uqUq3+i/TqcaVX8uJ8aR+4Em/P08E7PKTW25XkbnjeyY+/akYoD3Qn4nYN8U0utKskwaHXlqJWBwbxZPgqb5ZAeGryW2gGrsmlDt8Wuhpuv/TQTvNh5+4c1sBXKm+3nAjQ26CcK9lNjQgpEnYpfBj7ovj1eIfDKtbEYClVKJ2+nKu22koX3zFVT2ZnSEjwcRJcgqbDnDaax3QZ2Yq1jO5FX6i5QODzE7vejQ/Fwsz+KOqGNOj6aZXJ1XIHJ15UVXEIj2gXe0KeZkrKer7Ynd9q20hlNW7R9xdnfo0XGo2z0PKEToGMYD6ZZP8pG6XQEdPjCWDwZPhM/e1xinVRsaqHBHuyabJJLnLP7r6O31LT0s840PS75pVAty7nM1DbVAHJdZ3gIB42H4OVkC8bRoC1Yy6XvN7kmRKj0ACx5JEp8pYuT1TRpsiSk5J/KOiQhM/9PSciN3P4AUEsDBBQAAAgIAACYn+uJLGwkbAAAAHcAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jPWUVBKL0osyCgGChiCOKWZKSB2tJKZaZqpsUWiRWqiWaqZkWWarkGaabKlaWqiiXlKiqGFibFSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAAJif6/vgxEpHAgAA6gQAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAJif64ksbCRsAAAAdwAAAAkAJAAAAAAAAAAAAAAAlAIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAABLAwAAAAA=
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -44431,6 +44431,16 @@ Prefab:
     - target: {fileID: 1876808029979534, guid: 46deee0f56109454fb7d0c204c9f7325, type: 2}
       propertyPath: m_Name
       value: Level 1 Baddie (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114276299670736670, guid: 46deee0f56109454fb7d0c204c9f7325,
+        type: 2}
+      propertyPath: endReachedDistance
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114276299670736670, guid: 46deee0f56109454fb7d0c204c9f7325,
+        type: 2}
+      propertyPath: maxSpeed
+      value: 0.7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46deee0f56109454fb7d0c204c9f7325, type: 2}

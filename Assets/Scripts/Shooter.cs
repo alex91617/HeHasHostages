@@ -143,6 +143,6 @@ public class Shooter : MonoBehaviour {
                 return false;
             }
         }
-        return true;
+        return true & (Vector2.Distance(this.transform.position, player.transform.position) <= distance);
     }
 }
