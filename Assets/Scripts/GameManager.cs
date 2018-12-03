@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour {
 
 
 
-
+    public GameObject unlockInfoDisplay;
     public GameObject hostageInfoDisplay;
     public Hostage currentHostage;
     public Transform NextHostageDisplay;
@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         Collectables.LoadCollectables();
-        nextHostage = Collectables.GrabAHostage();
+        nextHostage = Collectables.GrabAHostage(true);
 	}
 	
 	// Update is called once per frame
@@ -55,5 +55,18 @@ public class GameManager : MonoBehaviour {
     {
         healthbar.maxValue = max;
         healthbar.value = Mathf.Clamp(current,0,max);
+    }
+    public void UnlockNewHostage(Hostage hostage)
+    {
+        CloseHostageDisplay();
+        unlockInfoDisplay.transform.Find("Name").GetComponent<Text>().text = hostage.name;
+        unlockInfoDisplay.transform.Find("Image").GetComponent<Image>().sprite = hostage.getSprite();
+        unlockInfoDisplay.transform.Find("Backstory").GetComponent<Text>().text = hostage.background;
+        Collectables.UnlockedHostages.Add(hostage);
+        unlockInfoDisplay.SetActive(true);
+    }
+    public void CloseUnlockDisplay()
+    {
+        unlockInfoDisplay.SetActive(false);
     }
 }

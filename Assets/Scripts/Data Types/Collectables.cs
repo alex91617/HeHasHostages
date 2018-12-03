@@ -37,6 +37,7 @@ public static class Collectables {
                 }
             }
         }
+        Debug.Log("Player Unlocks: " + unlockString);
     }
 
     static void SaveCollectables()
