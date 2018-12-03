@@ -63,6 +63,7 @@ public class GameManager : MonoBehaviour {
         unlockInfoDisplay.transform.Find("Image").GetComponent<Image>().sprite = hostage.getSprite();
         unlockInfoDisplay.transform.Find("Backstory").GetComponent<Text>().text = hostage.background;
         Collectables.UnlockedHostages.Add(hostage);
+        Collectables.SaveCollectables();
         unlockInfoDisplay.SetActive(true);
     }
     public void CloseUnlockDisplay()
