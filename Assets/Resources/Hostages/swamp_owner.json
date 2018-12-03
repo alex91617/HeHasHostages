@@ -1,0 +1,8 @@
+{
+"id" : "swamp",
+"name" : "Swamp Owner",
+"type" : 0,
+"background" : "The Swamp Owner decided he wanted to expand his horizons by purchasing another nearby swamp with a bank loan. Unfortunatly, he did not have enough layers to protect him from lethal projectiles.",
+"sprite":"swamp_owner",
+"hp": 3
+}
