@@ -1,0 +1,10 @@
+{
+"id" : "grandma",
+"name" : "Grandma Maggie",
+"type" : 0,
+"background" : "She held up the entire line because she was in front and didn't know how to work the ATM. In a way, she is responsible for all these tragic deaths. But she makes some damn good cookies.",
+"sprite" : "grandma",
+"hp":2,
+"friction": 0.2,
+"mass":1
+}
