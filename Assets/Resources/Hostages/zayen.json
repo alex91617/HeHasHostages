@@ -3,5 +3,8 @@
 "name" : "Zayen",
 "type" : 0,
 "background" : "He needed a loan in order to purchase the ridiculously overpriced photoshop to make art for his new bank game. Ironic.",
-"sprite" : "Zayen"
+"sprite" : "Zayen",
+"hp":1,
+"friction": 0.5,
+"mass":2
 }

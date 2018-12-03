@@ -3,5 +3,8 @@
 "name" : "George",
 "type" : 0,
 "background" : "George didn't know that you need money to purchase a hunting license. His son will be sad to know their hunting trip is cancelled indefinetly.",
-"sprite" : "george"
+"sprite" : "george",
+"hp":1,
+"friction": 0.5,
+"mass":1
 }

@@ -3,5 +3,8 @@
 "name" : "Joey",
 "type" : 0,
 "background" : "He was coding a game about a bank when he realized he had run out of money for food. Irony.",
-"sprite" : "Joey"
+"sprite" : "Joey",
+"hp":1,
+"friction": 0.4,
+"mass":1
 }
