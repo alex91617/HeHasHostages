@@ -77,6 +77,7 @@ public class GameManager : MonoBehaviour {
     }
     public void ReturnToMainMenu()
     {
+        Debug.Log("Moving to main menu");
         SceneManager.LoadScene(0);
     }
     public void GAMEOVER()
