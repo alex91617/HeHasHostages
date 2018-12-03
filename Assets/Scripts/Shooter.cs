@@ -138,7 +138,7 @@ public class Shooter : MonoBehaviour {
         for (int i = 0; i < hits.Length; i++)
         {
             RaycastHit2D sightTest = hits[i];
-            if (sightTest.collider.gameObject != player.gameObject)
+            if (sightTest.collider.gameObject != player.gameObject & sightTest.collider.tag != "Money")
             {
                 return false;
             }
