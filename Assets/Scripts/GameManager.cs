@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
     Hostage nextHostage;
 
-
-
+    public GameObject victoryObject;
+    public GameObject gameOver;
     public GameObject unlockInfoDisplay;
     public GameObject hostageInfoDisplay;
     public Hostage currentHostage;
@@ -55,6 +56,10 @@ public class GameManager : MonoBehaviour {
     {
         healthbar.maxValue = max;
         healthbar.value = Mathf.Clamp(current,0,max);
+        if(current <= 0)
+        {
+            GAMEOVER();
+        }
     }
     public void UnlockNewHostage(Hostage hostage)
     {
@@ -69,5 +74,28 @@ public class GameManager : MonoBehaviour {
     public void CloseUnlockDisplay()
     {
         unlockInfoDisplay.SetActive(false);
+    }
+    public void ReturnToMainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+    public void GAMEOVER()
+    {
+        for(int i = 0; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).gameObject.SetActive(false);
+        }
+        GameObject.FindGameObjectWithTag("Player").SetActive(false);
+        gameOver.SetActive(true);
+    }
+    public void VICTORY()
+    {
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).gameObject.SetActive(false);
+        }
+        GameObject.FindGameObjectWithTag("Player").SetActive(false);
+        victoryObject.transform.Find("Money").GetComponent<Text>().text = money.text;
+        victoryObject.SetActive(true);
     }
 }
