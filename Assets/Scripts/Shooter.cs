@@ -100,6 +100,7 @@ public class Shooter : MonoBehaviour {
         canShoot = false;
 
         yield return new WaitForSeconds(0.5f);
+        GetComponent<AudioSource>().Play();
         GameObject bullet = Instantiate(bulletPrefab);
         bullet.transform.position = transform.position;
 
