@@ -15,7 +15,7 @@ public class HostageManager : MonoBehaviour {
 
     float TimeOut = 30f;
 
-    public float MAX_DISTANCE = 1.5f;
+    const float MAX_DISTANCE = 0.15f;
 
     //Logic variables
     bool isPressed = false;
@@ -65,7 +65,17 @@ public class HostageManager : MonoBehaviour {
             GameObject.FindObjectOfType<PlayerManager>().hasHostage = false;
             isConnected = false;
         }
-
+        if(isConnected & Input.GetMouseButton(0))
+        {
+            isPressed = true;
+            rb.isKinematic = true;
+        }
+        else if(isConnected & Input.GetMouseButtonUp(0))
+        {
+            isPressed = false;
+            isConnected = false;
+            StartCoroutine(Release());
+        }
 	}
 
     public void ComputeDeath()
@@ -85,31 +95,13 @@ public class HostageManager : MonoBehaviour {
             rb.angularVelocity = 0;
         }
     }
-
-    void OnMouseDown()
-    {
-        //Disable most physics
-        isPressed = true;
-        if (isConnected)
-        {
-            rb.isKinematic = true;
-        }
-    }
-    void OnMouseUp()
-    {
-        //Enable most physics
-        isPressed = false;
-        if (isConnected)
-        {
-            isConnected = false;
-            StartCoroutine(Release());
-        }
-    }
+    
 
     IEnumerator Release()
     {
         GetComponent<SpriteRenderer>().sprite = hostage.getSprite();
         yield return new WaitForSeconds(releaseTime*0.15f);
+
         rb.freezeRotation = false;
         gameObject.layer = 2;
         rb.isKinematic = false;

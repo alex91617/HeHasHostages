@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -13,7 +13,7 @@ public class SettingsMenu : MonoBehaviour {
     public Slider masterVolumeSlider;
     public Slider musicVolumeSlider;
     public Slider guiVolumeSlider;
-    public Slider intercomVolumeSlider;
+    public Slider effectVolumeSlider;
 
     private void Start()
     {
@@ -42,14 +42,15 @@ public class SettingsMenu : MonoBehaviour {
             SetGUIVolume(PlayerPrefs.GetFloat("GUIVolume"));
             guiVolumeSlider.value = PlayerPrefs.GetFloat("GUIVolume");
         }
-        //Load and set intercome volume
-        if (PlayerPrefs.HasKey("IntercomVolume"))
+        //Load and set GUI volume
+        if (PlayerPrefs.HasKey("EffectVolume"))
         {
-            SetIntercomVolume(PlayerPrefs.GetFloat("IntercomVolume"));
-            intercomVolumeSlider.value = PlayerPrefs.GetFloat("IntercomVolume");
+            SetEffectVolume(PlayerPrefs.GetFloat("EffectVolume"));
+            effectVolumeSlider.value = PlayerPrefs.GetFloat("EffectVolume");
         }
+
         //Load and set resolution
-        if(PlayerPrefs.HasKey("ResWidth"))
+        if (PlayerPrefs.HasKey("ResWidth"))
         {
             if(PlayerPrefs.HasKey("ResHeight"))
             {
@@ -107,11 +108,12 @@ public class SettingsMenu : MonoBehaviour {
         audioMixer.SetFloat("GUIVolume", volume);
         PlayerPrefs.SetFloat("GUIVolume", volume);
     }
-    public void SetIntercomVolume(float volume)
+    public void SetEffectVolume(float volume)
     {
-        audioMixer.SetFloat("IntercomVolume", volume);
-        PlayerPrefs.SetFloat("IntercomVolume", volume);
+        audioMixer.SetFloat("EffectVolume", volume);
+        PlayerPrefs.SetFloat("EffectVolume", volume);
     }
+
     public void SetFullScreen(bool isFullscreen)
     {
         Screen.fullScreen = isFullscreen;

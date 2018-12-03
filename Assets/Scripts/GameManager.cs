@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour {
 	void Start () {
         Collectables.LoadCollectables();
         nextHostage = Collectables.GrabAHostage(true);
+
+        GetComponent<AudioSource>().Play();
 	}
 	
 	// Update is called once per frame
