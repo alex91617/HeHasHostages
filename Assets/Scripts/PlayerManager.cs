@@ -24,9 +24,13 @@ public class PlayerManager : MonoBehaviour {
     int AnimationFrame = 0;
     public Sprite[] movingAnimation;
     public Sprite[] idleAnimation;
+    public Sprite[] forwardMovingAnimation;
+    public Sprite[] forwardIdleAnimation;
 
     float animationSpeed = 0.15f;
     float tempAnimationTime;
+
+    bool facingForward = false;
 
     SpriteRenderer render;
 
@@ -55,19 +59,26 @@ public class PlayerManager : MonoBehaviour {
         {
             Debug.Log("Changing frame");
             AnimationFrame++;
-            if(animation == AnimationSet.IDLE)
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            if (animation == AnimationSet.IDLE)
             {
                 if (AnimationFrame > idleAnimation.Length - 1)
                     AnimationFrame = 0;
 
-                render.sprite = idleAnimation[AnimationFrame];
+                if (mousePos.y > transform.position.y)
+                    render.sprite = idleAnimation[AnimationFrame];
+                else
+                    render.sprite = forwardIdleAnimation[AnimationFrame];
             }
             else if (animation == AnimationSet.MOVING)
             {
                 if (AnimationFrame > movingAnimation.Length - 1)
                     AnimationFrame = 0;
 
-                render.sprite = movingAnimation[AnimationFrame];
+                if (mousePos.y > transform.position.y)
+                    render.sprite = movingAnimation[AnimationFrame];
+                else
+                    render.sprite = forwardMovingAnimation[AnimationFrame];
             }
             tempAnimationTime = animationSpeed;
         }

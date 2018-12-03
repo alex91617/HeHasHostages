@@ -92,6 +92,7 @@ MonoBehaviour:
   - soldier
   - bad_boi
   - artie
+  - swamp_owner
 --- !u!212 &212178732454604718
 SpriteRenderer:
   m_ObjectHideFlags: 1

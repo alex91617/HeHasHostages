@@ -55,8 +55,10 @@ public class ExitManager : MonoBehaviour {
                 AnimationFrame++;
                 if (AnimationFrame > exitAnimation.Length - 1)
                     PlayAnimation = false;
-
-                GetComponent<SpriteRenderer>().sprite = exitAnimation[AnimationFrame];
+                if (PlayAnimation)
+                {
+                    GetComponent<SpriteRenderer>().sprite = exitAnimation[AnimationFrame];
+                }
                 tempAnimationTime = animationSpeed;
             }
         }
