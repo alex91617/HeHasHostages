@@ -14,6 +14,8 @@ public class PlayerManager : MonoBehaviour {
     public int HP = 4;
     public int MaxHP = 4;
 
+    List<Light> lights = new List<Light>();
+
     public int money = 0;
 
     //Animations
@@ -34,8 +36,12 @@ public class PlayerManager : MonoBehaviour {
         manager = GameObject.FindObjectOfType<GameManager>();
         render = this.GetComponent<SpriteRenderer>();
         tempAnimationTime = animationSpeed;
-        
 
+        Light[] li = GameObject.FindObjectsOfType<Light>();
+        foreach(Light l in li)
+        {
+            lights.Add(l);
+        }
 	}
 	
 	// Update is called once per frame
@@ -74,7 +80,19 @@ public class PlayerManager : MonoBehaviour {
             StartCoroutine(SpawnHostage(manager.currentHostage));
         }
         manager.UpdateHealthbar(HP, MaxHP);
+
+        ManageLights();
 	}
+
+    void ManageLights()
+    {
+        foreach(Light light in lights)
+        {
+            bool on = Vector2.Distance(transform.position, light.transform.position) < 7 || light.type == LightType.Directional;
+            if (light.gameObject.activeInHierarchy != on)
+                light.gameObject.SetActive(on);
+        }
+    }
 
     private void FixedUpdate()
     {
