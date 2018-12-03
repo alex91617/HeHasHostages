@@ -4,5 +4,7 @@
 "type" : 0,
 "background" : "His parents shipped him off at to clown college at a very early age. Unfortunatly he ended up flunking and worked at a fast food restaurant.",
 "sprite" : "ronny",
-"hp":3
+"hp":2,
+"friction": 0.1,
+"mass":4
 }

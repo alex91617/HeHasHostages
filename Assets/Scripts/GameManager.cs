@@ -21,8 +21,7 @@ public class GameManager : MonoBehaviour {
 	void Start () {
         Collectables.LoadCollectables();
         nextHostage = Collectables.GrabAHostage(true);
-
-        GetComponent<AudioSource>().Play();
+       
 	}
 	
 	// Update is called once per frame
@@ -32,6 +31,13 @@ public class GameManager : MonoBehaviour {
         hostageInfoDisplay.transform.Find("Name").GetComponent<Text>().text = currentHostage.name;
         hostageInfoDisplay.transform.Find("Image").GetComponent<Image>().sprite = currentHostage.getSprite();
         hostageInfoDisplay.transform.Find("Backstory").GetComponent<Text>().text = currentHostage.background;
+        hostageInfoDisplay.transform.Find("Mass").GetComponent<Text>().text = "Mass: " + currentHostage.mass.ToString();
+        hostageInfoDisplay.transform.Find("Slip").GetComponent<Text>().text = "Slip: " + ((1-currentHostage.friction) * 10).ToString();
+        for(int i = 0; i < hostageInfoDisplay.transform.Find("HP").childCount; i++)
+        {
+            bool active = int.Parse(hostageInfoDisplay.transform.Find("HP").GetChild(i).name) <= currentHostage.hp;
+            hostageInfoDisplay.transform.Find("HP").GetChild(i).gameObject.SetActive(active);
+        }
     }
     public void DisplayMoney(int value)
     {

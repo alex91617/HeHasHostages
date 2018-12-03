@@ -28,6 +28,9 @@ public class HostageManager : MonoBehaviour {
         HP = hostage.hp;
 
         rb.freezeRotation = true;
+        rb.angularDrag = hostage.friction;
+        rb.drag = hostage.friction;
+        rb.mass = hostage.mass;
 	}
 	
 	// Update is called once per frame
