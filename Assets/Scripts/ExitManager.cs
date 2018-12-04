@@ -8,6 +8,7 @@ public class ExitManager : MonoBehaviour {
     GameManager manager;
 
     bool PlayAnimation = false;
+    bool PlayingSound = false;
 
     int AnimationFrame = 0;
     public Sprite[] exitAnimation;
@@ -45,6 +46,11 @@ public class ExitManager : MonoBehaviour {
     {
         if (PlayAnimation)
         {
+            if(PlayingSound == false)
+            {
+                PlayingSound = true;
+                GetComponent<AudioSource>().Play();
+            }
             if (tempAnimationTime > 0)
             {
                 tempAnimationTime -= Time.deltaTime;

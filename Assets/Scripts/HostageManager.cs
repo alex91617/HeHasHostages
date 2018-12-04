@@ -90,6 +90,10 @@ public class HostageManager : MonoBehaviour {
         if(isConnected == false & --HP <= 0)
         {
             Destroy(gameObject);
+        } else if(isConnected)
+        {
+            GameObject.FindObjectOfType<PlayerManager>().hasHostage = false;
+            Destroy(gameObject);
         }
         
     }
