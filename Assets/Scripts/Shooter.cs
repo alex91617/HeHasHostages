@@ -7,7 +7,7 @@ public class Shooter : MonoBehaviour {
     PlayerManager player;
     private Vector3 playerLaserOffset = new Vector3(0, 0.125f, 0);
 
-    public float fireRate = 5;
+    public float fireRate = 3.5f;
     float TimeUntilFiring;
     public bool canShoot = true;
     public GameObject bulletPrefab;

@@ -6226,6 +6226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f3cbdc78011aa24a8896707fcb1b8d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cursor: {fileID: 2800000, guid: 0e28caf716c08c44f97df677eb0729a7, type: 3}
 --- !u!82 &1398226257
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6346,7 +6347,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1398226251}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb87f76728e91104d9891e9e96253e78, type: 3}
   m_Name: 
@@ -7280,9 +7281,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2e3db08266a10b4692012c738ad9355, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FadeIn: 1
-  fadeTime: 1
+  FadeIn: 0
+  fadeTime: 0.5
   update: 1
+  delay: 0
+  delayLength: 1.5
 --- !u!114 &1765013515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7295,14 +7298,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 6e991e06933409e4791d8c376bd02ea1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b51302b4e2cf85142935435f5cdeae19, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
