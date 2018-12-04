@@ -16,6 +16,7 @@ public class Shooter : MonoBehaviour {
     public float reloadTime = 1;
     public bool outOfRange;
     public bool debug = false;
+    public List<AudioClip> voiceLines;
 
 
     Pathfinding.AIPath pathing;
@@ -61,6 +62,13 @@ public class Shooter : MonoBehaviour {
         else
         {
             active = CheckLineOfSight(ACTIVE_RANGE);
+            if(active)
+            {
+                AudioSource audio = transform.parent.GetComponent<AudioSource>();
+                AudioClip clip = voiceLines[Random.Range(0, voiceLines.Count)];
+                audio.clip = clip;
+                audio.Play();
+            }
         }
     }
     private void FixedUpdate()
