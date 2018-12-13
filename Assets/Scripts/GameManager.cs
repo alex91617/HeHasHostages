@@ -54,11 +54,13 @@ public class GameManager : MonoBehaviour {
     public void OpenHostageDisplay()
     {
         hostageInfoDisplay.SetActive(true);
+        UnpauseGame(false);
     }
 
     public void CloseHostageDisplay()
     {
         hostageInfoDisplay.SetActive(false);
+        UnpauseGame();
     }
     public void UpdateHealthbar(int current, int max)
     {
@@ -77,11 +79,27 @@ public class GameManager : MonoBehaviour {
         unlockInfoDisplay.transform.Find("Backstory").GetComponent<Text>().text = hostage.background;
         Collectables.UnlockedHostages.Add(hostage);
         Collectables.SaveCollectables();
+        UnpauseGame(false);
         unlockInfoDisplay.SetActive(true);
     }
+    public void UnpauseGame(bool unpause = true)
+    {
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>().enabled = unpause;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        foreach (Shooter shooter in GameObject.FindObjectsOfType<Shooter>())
+        {
+            shooter.enabled = unpause;
+        }
+        foreach(Pathfinding.AIPath path in GameObject.FindObjectsOfType<Pathfinding.AIPath>())
+        {
+            path.enabled = unpause;
+        }
+    }
+
     public void CloseUnlockDisplay()
     {
         unlockInfoDisplay.SetActive(false);
+        UnpauseGame();
     }
     public void ReturnToMainMenu()
     {
