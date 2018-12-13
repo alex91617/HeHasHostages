@@ -7,15 +7,12 @@ public class Shooter : MonoBehaviour {
     PlayerManager player;
     private Vector3 playerLaserOffset = new Vector3(0, 0.125f, 0);
 
-
-
-
-
-
+    //Give up times
     public float giveUpTime = 10f;
     float SearchTime;
     Transform startingPos;
 
+    //Shooting
     public float fireRate = 3.5f;
     float TimeUntilFiring;
     public bool canShoot = true;
@@ -25,11 +22,14 @@ public class Shooter : MonoBehaviour {
     public float reloadTime = 1;
     public bool outOfRange;
     public bool debug = false;
+
+    //Voice lines
     public List<AudioClip> voiceLines;
 
 
     Pathfinding.AIPath pathing;
 
+    //Line of sight
     const float RANGE = 3f;
     const float ACTIVE_RANGE = 2f;
 

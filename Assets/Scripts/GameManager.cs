@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
     Hostage nextHostage;
 
+    public GameObject pauseMenu;
     public GameObject victoryObject;
     public GameObject gameOver;
     public GameObject unlockInfoDisplay;
@@ -38,17 +39,34 @@ public class GameManager : MonoBehaviour {
             bool active = int.Parse(hostageInfoDisplay.transform.Find("HP").GetChild(i).name) <= currentHostage.hp;
             hostageInfoDisplay.transform.Find("HP").GetChild(i).gameObject.SetActive(active);
         }
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            OpenPauseMenu(!pauseMenu.activeSelf);
+        }
     }
     public void DisplayMoney(int value)
     {
         money.text = "$" + value.ToString();
     }
 
+    public void ExitApplication()
+    {
+        Application.Quit();
+        if (Application.isEditor)
+        {
+            Debug.LogWarning("Unable to exit game in editor!");
+        }
+    }
 
     public void LoadHostage()
     {
         currentHostage = nextHostage;
         nextHostage = Collectables.GrabAHostage(true);
+    }
+    public void OpenPauseMenu(bool open = true)
+    {
+        pauseMenu.SetActive(open);
+        UnpauseGame(!open);
     }
 
     public void OpenHostageDisplay()
@@ -84,15 +102,32 @@ public class GameManager : MonoBehaviour {
     }
     public void UnpauseGame(bool unpause = true)
     {
-        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>().enabled = unpause;
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        foreach (Shooter shooter in GameObject.FindObjectsOfType<Shooter>())
+        bool good = false;
+        if (unpause & pauseMenu.activeSelf == false & hostageInfoDisplay.activeSelf == false & unlockInfoDisplay.activeSelf == false)
         {
-            shooter.enabled = unpause;
+            good = true;
         }
-        foreach(Pathfinding.AIPath path in GameObject.FindObjectsOfType<Pathfinding.AIPath>())
+        else if (unpause == false) 
         {
-            path.enabled = unpause;
+            good = true;
+        }
+
+        if(good)
+        {
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>().enabled = unpause;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            foreach (Shooter shooter in GameObject.FindObjectsOfType<Shooter>())
+            {
+                shooter.enabled = unpause;
+            }
+            foreach (Pathfinding.AIPath path in GameObject.FindObjectsOfType<Pathfinding.AIPath>())
+            {
+                path.enabled = unpause;
+            }
+            foreach(HostageManager hostage in GameObject.FindObjectsOfType<HostageManager>())
+            {
+                hostage.enabled = unpause;
+            }
         }
     }
 
