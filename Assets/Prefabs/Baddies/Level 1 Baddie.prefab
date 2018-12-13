@@ -360,6 +360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d32b5a9b1bbf0c54381b509fe2fbe600, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  giveUpTime: 6
   fireRate: 5
   canShoot: 1
   bulletPrefab: {fileID: 1609698503647758, guid: 95c5c30af193a2f47ac3126bca2849c6,

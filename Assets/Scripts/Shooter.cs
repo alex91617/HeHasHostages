@@ -7,6 +7,15 @@ public class Shooter : MonoBehaviour {
     PlayerManager player;
     private Vector3 playerLaserOffset = new Vector3(0, 0.125f, 0);
 
+
+
+
+
+
+    public float giveUpTime = 10f;
+    float SearchTime;
+    Transform startingPos;
+
     public float fireRate = 3.5f;
     float TimeUntilFiring;
     public bool canShoot = true;
@@ -28,6 +37,12 @@ public class Shooter : MonoBehaviour {
 
 
     void Start() {
+        GameObject temp = Instantiate(new GameObject());
+        temp.transform.position = this.transform.position;
+        startingPos = temp.transform;
+
+        SearchTime = giveUpTime;
+
         line = this.GetComponent<LineRenderer>();
         player = GameObject.FindObjectOfType<PlayerManager>();
         line.useWorldSpace = true;
@@ -54,6 +69,19 @@ public class Shooter : MonoBehaviour {
 
 
             outOfRange = !CheckLineOfSight(RANGE);
+            if(outOfRange)
+            {
+                SearchTime -= Time.deltaTime;
+            }
+            else
+            {
+                SearchTime = giveUpTime;
+            }
+
+            if(SearchTime <= 0)
+            {
+                active = false;
+            }
 
 
             //Countdown
@@ -68,6 +96,7 @@ public class Shooter : MonoBehaviour {
                 AudioClip clip = voiceLines[Random.Range(0, voiceLines.Count)];
                 audio.clip = clip;
                 audio.Play();
+                SearchTime = giveUpTime;
             }
         }
     }
@@ -95,7 +124,8 @@ public class Shooter : MonoBehaviour {
         }
         else
         {
-            pathing.canMove = false;
+            pathing.canMove = true;
+            pathing.target = startingPos;
         }
     }
 
