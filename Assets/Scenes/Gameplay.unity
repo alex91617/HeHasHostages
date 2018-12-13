@@ -34670,7 +34670,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.14117648}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.05882353}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -35522,7 +35522,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4909074768328476, guid: 46deee0f56109454fb7d0c204c9f7325, type: 2}
       propertyPath: m_RootOrder
-      value: 70
+      value: 69
       objectReference: {fileID: 0}
     - target: {fileID: 1876808029979534, guid: 46deee0f56109454fb7d0c204c9f7325, type: 2}
       propertyPath: m_Name
@@ -35949,7 +35949,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &947847313
 Rigidbody2D:
@@ -35963,8 +35963,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_LinearDrag: 1
+  m_AngularDrag: 1
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -37694,7 +37694,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1380623094
 GameObject:
@@ -38466,7 +38466,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4909074768328476, guid: 46deee0f56109454fb7d0c204c9f7325, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46deee0f56109454fb7d0c204c9f7325, type: 2}
@@ -38579,7 +38579,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.06906128, y: 0.22161865}
+  m_AnchoredPosition: {x: -0.0690918, y: 0.22161865}
   m_SizeDelta: {x: 92.130005, y: 52.416992}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1506319727
@@ -38804,7 +38804,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4909074768328476, guid: 46deee0f56109454fb7d0c204c9f7325, type: 2}
       propertyPath: m_RootOrder
-      value: 30
+      value: 29
       objectReference: {fileID: 0}
     - target: {fileID: 1876808029979534, guid: 46deee0f56109454fb7d0c204c9f7325, type: 2}
       propertyPath: m_Name
@@ -39663,7 +39663,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  MAX_DISTANCE: 2.5
+  MAX_DISTANCE: 1
 --- !u!114 &1842338669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39967,7 +39967,7 @@ Transform:
   m_Children:
   - {fileID: 149912076}
   m_Father: {fileID: 0}
-  m_RootOrder: 69
+  m_RootOrder: 70
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &1878573106
 GameObject:
@@ -44434,7 +44434,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.972549}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
