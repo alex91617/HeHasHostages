@@ -661,8 +661,8 @@ PlayerSettings:
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
   cloudProjectId: 6704ea21-a39e-4b33-862c-88f23a3b0fde
-  projectName: LudumDare43
-  organizationId: ludum-dare-42-team
+  projectName: He Has Hostages
+  organizationId: toda-studios
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
