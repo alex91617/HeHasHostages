@@ -3,5 +3,8 @@
 "name" : "The War Criminal",
 "type" : 0,
 "background" : "No clue how you kidnapped him at a bank in the 21st century, one thing is for sure, the cops aren't trying to rescue him.",
-"sprite" : "evil"
+"sprite" : "evil",
+"hp":1,
+"friction": 0.35,
+"mass":3
 }

@@ -31,6 +31,13 @@ public class EncyclopediaManager : MonoBehaviour {
         info.Find("Name").GetComponent<Text>().text = hostage.name;
         info.Find("Image").GetComponent<Image>().sprite = hostage.getSprite();
         info.Find("Backstory").GetComponent<Text>().text = hostage.background;
+        info.transform.Find("Mass").GetComponent<Text>().text = "Mass: " + hostage.mass.ToString();
+        info.transform.Find("Slip").GetComponent<Text>().text = "Slip: " + ((1 - hostage.friction) * 10).ToString();
+        for (int i = 0; i < info.transform.Find("HP").childCount; i++)
+        {
+            bool active = int.Parse(info.transform.Find("HP").GetChild(i).name) <= hostage.hp;
+            info.transform.Find("HP").GetChild(i).gameObject.SetActive(active);
+        }
         info.gameObject.SetActive(true);
     }
 }

@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour {
     Fader fader;
+    public Texture2D cursor;
+
+
+    
 
 	public void ExitGame()
     {
@@ -16,8 +20,7 @@ public class MainMenuManager : MonoBehaviour {
     }
     public void NewGame()
     {
-        fader.FadeIn = false;
-        fader.update = true;
+        fader.FadeIn = true;
         StartCoroutine(LoadGame());
     }
 
@@ -51,12 +54,13 @@ public class MainMenuManager : MonoBehaviour {
     void Start()
     {
         fader = FindObjectOfType<Fader>();
+        Cursor.SetCursor(cursor, new Vector2(1,1), CursorMode.Auto);
         
     }
 
     IEnumerator LoadGame()
     {
-        yield return new WaitForSeconds(0);
+        yield return new WaitForSeconds(2.5f);
         SceneManager.LoadScene(1);
     }
 }

@@ -1,0 +1,10 @@
+{
+"id" : "jonny",
+"name" : "Jonny",
+"type" : 0,
+"background" : "Even though he selected the 'Fast Cash' option on the ATM, he still did not manage to escape before the robery. Tragic.",
+"sprite" : "jonny",
+"hp":1,
+"friction": 1,
+"mass":2
+}

@@ -9,11 +9,13 @@ public enum HostageType
 public class Hostage {
     //Variables
     public string id;
-    public string name;
+    public string name = "Unamed";
     public string background;
     public string sprite;
     public int hp = 1;
     public HostageType type;
+    public float friction = 0.5f;
+    public int mass = 2;
 
 
     public Sprite getSprite()

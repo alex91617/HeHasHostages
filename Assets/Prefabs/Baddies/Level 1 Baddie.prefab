@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 61721123396992334}
   - component: {fileID: 114276299670736670}
   - component: {fileID: 114927185255205862}
+  - component: {fileID: 82801661795176494}
   m_Layer: 2
   m_Name: Level 1 Baddie
   m_TagString: Enemy
@@ -217,6 +218,102 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!82 &82801661795176494
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1876808029979534}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 243137278337440560, guid: 1e871582208b51c4e9509f038e8d094a,
+    type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &114276299670736670
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -229,12 +326,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
-  radius: 0.25
+  radius: 0.3
   height: 0.01
   repathRate: 0.5
   canSearch: 1
   canMove: 1
-  maxSpeed: 1
+  maxSpeed: 0.9
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
@@ -245,9 +342,9 @@ MonoBehaviour:
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 360
-  slowdownDistance: 0.6
-  pickNextWaypointDist: 2
-  endReachedDistance: 0.2
+  slowdownDistance: 3
+  pickNextWaypointDist: 0.1
+  endReachedDistance: 0.75
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
@@ -263,6 +360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d32b5a9b1bbf0c54381b509fe2fbe600, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  giveUpTime: 6
   fireRate: 5
   canShoot: 1
   bulletPrefab: {fileID: 1609698503647758, guid: 95c5c30af193a2f47ac3126bca2849c6,
@@ -270,6 +368,14 @@ MonoBehaviour:
   bulletPower: 10
   reloadTime: 1
   outOfRange: 0
+  debug: 0
+  voiceLines:
+  - {fileID: 8300000, guid: cba6b4f60a1670e4eb0591729ef3f27e, type: 3}
+  - {fileID: 8300000, guid: 8fad2691b387f8b489c8047f33d20c7c, type: 3}
+  - {fileID: 8300000, guid: a8595cae5a865c741b2795e3dc186459, type: 3}
+  - {fileID: 8300000, guid: 9334fdf27dc92bd40b11d50826c13c8d, type: 3}
+  - {fileID: 8300000, guid: 61fe45dd9a20b0f42b8135d87ced01ed, type: 3}
+  - {fileID: 8300000, guid: cd0be95532cba29438393024c54bf64b, type: 3}
 --- !u!114 &114927185255205862
 MonoBehaviour:
   m_ObjectHideFlags: 1

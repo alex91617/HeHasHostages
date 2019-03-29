@@ -137,6 +137,10 @@ public class PlayerManager : MonoBehaviour {
         }
     }
 
+    public bool IsInfoOpen()
+    {
+        return manager.hostageInfoDisplay.activeInHierarchy;
+    }
 
 
 

@@ -3,5 +3,8 @@
 "name" : "Rubi",
 "type" : 0,
 "background" : "Rubi was a programmer and developer that prided herself on her ruby skillz.",
-"sprite":"ruby"
+"sprite":"ruby",
+"hp":1,
+"friction": 0.5,
+"mass":2
 }

@@ -4,5 +4,7 @@
 "type" : 0,
 "background" : "Jason was a programmer and developer that prided himself on his json skillz.",
 "sprite":"json",
-"hp":2
+"hp":2,
+"friction": 0.5,
+"mass":2
 }

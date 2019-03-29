@@ -109,7 +109,6 @@ MonoBehaviour:
   player: {fileID: 0}
   releaseTime: 0.5
   power: 180
-  MAX_DISTANCE: 0.5
 --- !u!212 &212098778164868706
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -7,7 +7,13 @@ public class Shooter : MonoBehaviour {
     PlayerManager player;
     private Vector3 playerLaserOffset = new Vector3(0, 0.125f, 0);
 
-    public float fireRate = 5;
+    //Give up times
+    public float giveUpTime = 10f;
+    float SearchTime;
+    Transform startingPos;
+
+    //Shooting
+    public float fireRate = 3.5f;
     float TimeUntilFiring;
     public bool canShoot = true;
     public GameObject bulletPrefab;
@@ -15,9 +21,15 @@ public class Shooter : MonoBehaviour {
     bool reloading = false;
     public float reloadTime = 1;
     public bool outOfRange;
+    public bool debug = false;
+
+    //Voice lines
+    public List<AudioClip> voiceLines;
+
 
     Pathfinding.AIPath pathing;
 
+    //Line of sight
     const float RANGE = 3f;
     const float ACTIVE_RANGE = 2f;
 
@@ -25,6 +37,12 @@ public class Shooter : MonoBehaviour {
 
 
     void Start() {
+        GameObject temp = Instantiate(new GameObject());
+        temp.transform.position = this.transform.position;
+        startingPos = temp.transform;
+
+        SearchTime = giveUpTime;
+
         line = this.GetComponent<LineRenderer>();
         player = GameObject.FindObjectOfType<PlayerManager>();
         line.useWorldSpace = true;
@@ -41,7 +59,7 @@ public class Shooter : MonoBehaviour {
     {
         if (active)
         {
-            line.enabled = canShoot & outOfRange == false;
+            line.enabled = canShoot & (outOfRange == false);
             if (line.enabled)
             {
                 //Update laser display
@@ -49,18 +67,44 @@ public class Shooter : MonoBehaviour {
                 line.SetPosition(1, player.transform.position + playerLaserOffset);
             }
 
-            outOfRange = Vector2.Distance(this.transform.position, player.transform.position) > RANGE;
+
+            outOfRange = !CheckLineOfSight(RANGE);
+            if(outOfRange)
+            {
+                SearchTime -= Time.deltaTime;
+            }
+            else
+            {
+                SearchTime = giveUpTime;
+            }
+
+            if(SearchTime <= 0)
+            {
+                active = false;
+            }
+
 
             //Countdown
             TimeUntilFiring -= Time.deltaTime;
         }
-        
+        else
+        {
+            active = CheckLineOfSight(ACTIVE_RANGE);
+            if(active)
+            {
+                AudioSource audio = transform.parent.GetComponent<AudioSource>();
+                AudioClip clip = voiceLines[Random.Range(0, voiceLines.Count)];
+                audio.clip = clip;
+                audio.Play();
+                SearchTime = giveUpTime;
+            }
+        }
     }
     private void FixedUpdate()
     {
         if (active)
         {
-            if (canShoot & TimeUntilFiring <= 0 & outOfRange == false)
+            if (canShoot & TimeUntilFiring <= 0 & (outOfRange == false))
             {
                 pathing.canMove = false;
                 StartCoroutine(Shoot());
@@ -80,8 +124,8 @@ public class Shooter : MonoBehaviour {
         }
         else
         {
-            pathing.canMove = false;
-            active = CheckLineOfSight(ACTIVE_RANGE);
+            pathing.canMove = true;
+            pathing.target = startingPos;
         }
     }
 
@@ -96,9 +140,9 @@ public class Shooter : MonoBehaviour {
 
     IEnumerator Shoot()
     {
-        line.enabled = false;
         canShoot = false;
-
+        yield return new WaitForSeconds(0.5f);
+        line.enabled = false;
         yield return new WaitForSeconds(0.5f);
         GetComponent<AudioSource>().Play();
         GameObject bullet = Instantiate(bulletPrefab);
@@ -116,7 +160,6 @@ public class Shooter : MonoBehaviour {
 
     public bool CheckLineOfSight(float distance)
     {
-        return Vector2.Distance(this.transform.position, player.transform.position) > distance;
 
         //precompute our ray settings
         Vector3 start = transform.position;
@@ -133,13 +176,11 @@ public class Shooter : MonoBehaviour {
         for (int i = 0; i < hits.Length; i++)
         {
             RaycastHit2D sightTest = hits[i];
-            if (sightTest.collider.gameObject != player.gameObject)
+            if (sightTest.collider.gameObject != player.gameObject & sightTest.collider.tag != "Money" & sightTest.collider.tag != "Hostage")
             {
-                Debug.Log(sightTest.collider.gameObject.name);
                 return false;
             }
         }
-
-        return true;
+        return true & (Vector2.Distance(this.transform.position, player.transform.position) <= distance);
     }
 }
