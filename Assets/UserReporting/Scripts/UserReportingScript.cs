@@ -401,7 +401,7 @@ public class UserReportingScript : MonoBehaviour
 
         if (this.ErrorPopup != null)
         {
-            this.ErrorPopup.enabled = this.isShowingError;
+            this.ErrorPopup.enabled = false;
         }
 
         // Update Client
