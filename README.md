@@ -10,6 +10,8 @@ This project was created for [Ludum Dare 43](https://ldjam.com/events/ludum-dare
 
 The theme was: *Sacrifices must be made*
 
+[Have any questions? Jump into our Discord!](https://discord.gg/UCgkKDv)
+
 ## Project Mangement
 
 We use ZenHub which is intergrated with GitHub issues.
